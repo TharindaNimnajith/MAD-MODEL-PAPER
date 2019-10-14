@@ -44,7 +44,7 @@ public class EditProfile extends AppCompatActivity {
         PasswordTXT  = findViewById(R.id.Password);
 
         gender = findViewById(R.id.Gender);
-       // radioButton = findViewById(Gid);
+       //radioButton = findViewById(Gid);
         Delete = findViewById(R.id.button3);
         Edit = findViewById(R.id.update);
         Search = findViewById(R.id.button5);
@@ -134,9 +134,16 @@ public class EditProfile extends AppCompatActivity {
                             }
                         });
 
-
-
                         break;
+                    }
+
+                    else if(cursor.isLast()) {
+                        Toast toast = Toast.makeText(EditProfile.this,"THIS IS INVALIDE",Toast.LENGTH_LONG);
+                        toast.show();
+                        int Gid = gender.getCheckedRadioButtonId();
+                        radioButton = findViewById(Gid);
+                        radioButton.setChecked(false);
+                        clear();
                     }
 
                 }
